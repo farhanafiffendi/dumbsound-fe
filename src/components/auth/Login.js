@@ -70,7 +70,7 @@ export default function Login() {
                 })
             }
             if (response.data.data.status === 'admin') {
-                navigate('/category')
+                navigate('/add-music')
             } else {
                 navigate('/')
             }

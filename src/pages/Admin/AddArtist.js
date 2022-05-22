@@ -10,6 +10,10 @@ const AddArtis = () => {
 
   let navigate = useNavigate();
 
+  message.config({
+    duration: 4,
+  });
+
   const [form, setForm] = useState({
     name: '',
     old: '',

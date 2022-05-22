@@ -25,6 +25,10 @@ const AddMusic = () => {
 
     console.log(artiss);
 
+    message.config({
+        duration: 4,
+    });
+
     // form pertama kali di load
     const [form, setForm] = useState({
         title: '',

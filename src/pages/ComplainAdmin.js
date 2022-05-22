@@ -17,10 +17,6 @@ export default function ComplainAdmin() {
     const [contacts, setContacts] = useState([])
     const [messages, setMessages] = useState([])
 
-
-    const title = "Complain admin"
-    document.title = 'DumbMerch | ' + title
-
     const [state, dispatch] = useContext(UserContext)
 
 

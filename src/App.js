@@ -37,7 +37,7 @@ function App() {
       navigate('/homepage');
     } else {
       if (state.user.status === 'admin') {
-        navigate('/category');
+        navigate('/add-music');
       } else if (state.user.status === 'customer') {
         navigate('/');
       }
