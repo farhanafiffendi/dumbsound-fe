@@ -9,12 +9,12 @@ import Register from './components/auth/Register';
 import Auth from './pages/Auth';
 import HeaderHome from './components/HeaderHome';
 import NavbarUser from './components/NavbarUser';
-import CardHome from './components/card/CardHome';
 import HomePage from './pages/User/HomePage';
 import ModalLogin from './components/modal/ModalLogin';
 import HomeSuccess from './pages/User/HomeSuccess';
 import AddArtist from './pages/Admin/AddArtist'
 import AddMusic from './pages/Admin/AddMusic';
+import MenuTransaksi from './pages/User/MenuTransaksi'
 
 import { setAuthToken, API } from './config/api';
 
@@ -81,6 +81,7 @@ function App() {
       <Route path='/homepage' element={<HomePage />} />
       <Route path='/add-music' element={<AddMusic />} />
       <Route path='/add-artist' element={<AddArtist />} />
+      <Route path='/pay' element={<MenuTransaksi />} />
       <Route path='/' element={<HomeSuccess />} />
     </Routes>
   );

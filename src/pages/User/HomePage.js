@@ -7,11 +7,24 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Masonry from 'react-masonry-css'
 import Register from '../../components/auth/Register'
 import Login from '../../components/auth/Login'
+import { API } from '../../config/api'
+import { useQuery } from "react-query";
 
 import { UserContext } from "../../context/userContext";
 
 export default function HomePage() {
     let navigate = useNavigate();
+
+    let { data: musics, refetch } = useQuery("musicsCache", async () => {
+        const config = {
+            method: "GET",
+            headers: {
+                Authorization: "Basic " + localStorage.token,
+            },
+        };
+        const response = await API.get("/musics", config);
+        return response.data.data;
+    });
 
     const [state] = useContext(UserContext);
 
@@ -40,14 +53,24 @@ export default function HomePage() {
                 <span className='header-card text-center'><p>Dengarkan Dan Rasakan</p></span>
                 <div>
                     <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
-                        <CardHome />
-                        <CardHome />
-                        <CardHome />
-                        <CardHome />
-                        <CardHome />
-                        <CardHome />
-                        <CardHome />
-                        <CardHome />
+                        {musics?.map((item, index) => {
+                            return (
+                                <div className='card-item mb-3 me-3'>
+                                    <div className='card-item-header'>
+                                        <img src={item.thumbnail} alt="" />
+                                    </div>
+                                    <div className="text-card">
+                                        <span className='text-title'>
+                                            <p>{item.title}</p>
+                                        </span>
+                                        <p>{item.year}</p>
+                                    </div>
+                                    <div className='flex-start'>
+                                        <p>{item.art.name}</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>

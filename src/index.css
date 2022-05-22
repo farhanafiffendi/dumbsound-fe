@@ -277,10 +277,13 @@ option:focus {
     justify-content: space-between;
     margin-top: 8px;
     z-index: 1;
+    text-decoration: none ;
 }
 
 .text-card p{
     font-size: 13px !important;
+    text-decoration: none ;
+    color: white !important;
 }
 
 .text-title p{
@@ -293,6 +296,8 @@ option:focus {
     justify-content: flex-start;
     margin-top: -15px;
     font-size: 14px;
+    color: white !important;
+    text-decoration: none !important;
 }
 
 .margin-header{
