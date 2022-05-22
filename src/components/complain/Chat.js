@@ -1,6 +1,6 @@
 import React from "react";
 
-import default_profile from './assets/blank-profile.png'
+import default_profile from '../assets/blank-profile.png'
 
 export default function Chat({ contact, user, messages, sendMessage }) {
   return (

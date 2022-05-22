@@ -300,6 +300,20 @@ option:focus {
     text-decoration: none !important;
 }
 
+.none-item{
+  text-decoration: none !important;
+}
+
+.premium-text{
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #bcbcbc;
+}
+
+.item-transaksi{
+  margin-top: 250px !important;
+}
+
 .margin-header{
     margin-top: -80px;
 }

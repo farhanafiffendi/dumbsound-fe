@@ -1,6 +1,6 @@
 import React from "react";
 
-import default_profile from "../../assets/blank-profile.png"
+import default_profile from "../assets/blank-profile.png"
 
 export default function Contact({ dataContact, clickContact, contact }) {
   return (
@@ -10,9 +10,8 @@ export default function Contact({ dataContact, clickContact, contact }) {
           {dataContact.map((item) => (
             <div
               key={item.id}
-              className={`contact mt-3 p-2 ${
-                contact?.id === item?.id && "contact-active"
-              }`}
+              className={`contact mt-3 p-2 ${contact?.id === item?.id && "contact-active"
+                }`}
               onClick={() => {
                 clickContact(item);
               }}

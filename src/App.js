@@ -15,6 +15,8 @@ import HomeSuccess from './pages/User/HomeSuccess';
 import AddArtist from './pages/Admin/AddArtist'
 import AddMusic from './pages/Admin/AddMusic';
 import MenuTransaksi from './pages/User/MenuTransaksi'
+import Complain from './pages/Complain';
+import ComplainAdmin from './pages/ComplainAdmin';
 
 import { setAuthToken, API } from './config/api';
 
@@ -83,6 +85,8 @@ function App() {
       <Route path='/add-artist' element={<AddArtist />} />
       <Route path='/pay' element={<MenuTransaksi />} />
       <Route path='/' element={<HomeSuccess />} />
+      <Route path='/complain' element={<Complain />} />
+      <Route path='/complain-admin' element={<ComplainAdmin />} />
     </Routes>
   );
 }

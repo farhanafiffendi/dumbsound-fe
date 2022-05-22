@@ -59,7 +59,7 @@ export default function HomeSuccess() {
                         {/* ================= Ketika User Belum Bayar Atau Status pending ==========*/}
                         {userTrans.status = "pending" ?
                             <>
-                                <Link to={'/pay'}>
+                                <Link to='/pay' className='none-item'>
                                     {musics?.map((item, index) => {
                                         return (
                                             <div className='card-item mb-3 me-3'>
