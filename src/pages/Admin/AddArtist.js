@@ -1,45 +1,81 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "react-query";
 import { Container, Form } from "react-bootstrap";
+import { useNavigate } from 'react-router';
+import NavbarAdmin from "../../components/NavbarAdmin";
+import { message } from 'antd';
+import { API } from '../../config/api';
 
 const AddArtis = () => {
-  const navigate = useNavigate();
 
-  const [loadingSubmit, setLoadingSubmit] = useState(false);
-  const [categoryId, setCategoryId] = useState([]); //Save the selected category id
-  const [preview, setPreview] = useState(null); // For image preview
+  let navigate = useNavigate();
+
   const [form, setForm] = useState({
-    title: "",
-    thumbnail: "",
-    year: "",
-    attache: "",
-    idArtis: "",
-  });
+    name: '',
+    old: '',
+    type: '',
+    startCareer: ''
+  })
 
-  // Handle change data on form
-  const handleChange = (e) => {
+  const { name, old, type, startCareer } = form
+
+  const handleOnChange = (e) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.type === "file" ? e.target.files : e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleOnSubmit = async (e) => {
+    try {
+      e.preventDefault()
+
+      const config = {
+        headers: {
+          "Content-type": "application/json"
+        }
+      }
+
+      const body = JSON.stringify({ ...form })
+
+      const response = await API.post('/artist', body, config)
+
+      message.success('Add Artis Success');
+
+      setForm(
+        {
+          name: '',
+          old: '',
+          type: '',
+          startCareer: ''
+        }
+      )
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   return (
     <div className="container my-5">
-      <Form>
+      <NavbarAdmin />
+      <Form onSubmit={handleOnSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="email" placeholder="Name" />
+          <Form.Control type="text" placeholder="Name" onChange={handleOnChange} value={name} name="name" />
           <Form.Label>Old</Form.Label>
-          <Form.Control type="email" placeholder="Old" />
-          <label for="disabledSelect" class="form-label">Gender</label>
-          <select id="disabledSelect" class="form-select" name="gender" onChange={handleChange}>
+          <Form.Control type="number" placeholder="Old" onChange={handleOnChange} value={old} name="old" />
+          <label for="disabledSelect" class="form-label">Type</label>
+          <select id="disabledSelect" class="form-select" onChange={handleOnChange} value={type} name="type">
             <option value="" selected disabled>Type</option>
-            <option name="Solo">Solo</option>
-            <option name="Band">Band</option>
+            <option name="type">Solo</option>
+            <option name="type">Band</option>
           </select>
+          <Form.Label>Start a Career</Form.Label>
+          <Form.Control type="text" placeholder="Start a Career" onChange={handleOnChange} value={startCareer} name="startCareer" />
         </Form.Group>
+        <button className='mt-2 btn btn-danger'> Add Artist </button>
       </Form>
     </div>
   );

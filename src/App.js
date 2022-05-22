@@ -79,7 +79,8 @@ function App() {
   return (
     <Routes>
       <Route path='/homepage' element={<HomePage />} />
-      <Route path='/Home' element={<AddMusic />} />
+      <Route path='/add-music' element={<AddMusic />} />
+      <Route path='/add-artist' element={<AddArtist />} />
       <Route path='/' element={<HomeSuccess />} />
     </Routes>
   );

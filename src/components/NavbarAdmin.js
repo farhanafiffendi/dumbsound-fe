@@ -1,30 +1,39 @@
-import React from 'react'
-import Logo from './assets/shapes.png'
-import { Container, Navbar as NavbarComp, Nav, NavDropdown } from 'react-bootstrap'
-import { Avatar } from '@mui/material'
+import React, { useContext } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { UserContext } from "../context/userContext";
+import { Nav } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function NavbarAdmin() {
+    let navigate = useNavigate()
+
+    const [state, dispatch] = useContext(UserContext);
+
+    const logout = () => {
+        dispatch({
+            type: "LOGOUT"
+        })
+        navigate("/homepage")
+    }
+
     return (
         <>
-            <NavbarComp expand="lg">
-                <Container>
-                    <NavbarComp.Brand className='d-flex text-nav'>
-                        <img src={Logo} className="img-fluid" />
-                        <p className='text-dumb'>Dumb<span className='text-sound'>sound</span></p>
-                    </NavbarComp.Brand>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <Avatar>H</Avatar>
-                        <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-                        <Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                </Container>
-            </NavbarComp>
+            <div className="container d-flex justify-content-end mt-3 fixed-top">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger btn-radius">{`${state.user.fullname}`.slice(0, 1).toUpperCase()}</button>
+                    <button type="button" class="btn btn-danger drop dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <Nav.Link as={Link} to="/add-music"><a class="dropdown-item">Add Music</a></Nav.Link>
+                        <Nav.Link as={Link} to="/add-artist"><a class="dropdown-item">Add Artist</a></Nav.Link>
+                        <Nav.Link as={Link} to="/list-transaction"><a class="dropdown-item">List Transaction</a></Nav.Link>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" onClick={logout}>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
         </>
     )
 }
