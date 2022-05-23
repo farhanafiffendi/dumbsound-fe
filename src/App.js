@@ -4,19 +4,14 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from './context/userContext';
 
-// import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import Auth from './pages/Auth';
-import HeaderHome from './components/HeaderHome';
-import NavbarUser from './components/NavbarUser';
 import HomePage from './pages/User/HomePage';
-import ModalLogin from './components/modal/ModalLogin';
 import HomeSuccess from './pages/User/HomeSuccess';
 import AddArtist from './pages/Admin/AddArtist'
 import AddMusic from './pages/Admin/AddMusic';
 import MenuTransaksi from './pages/User/MenuTransaksi'
 import Complain from './pages/Complain';
 import ComplainAdmin from './pages/ComplainAdmin';
+import HomePaySuccess from './pages/User/HomePaySuccess';
 
 import { setAuthToken, API } from './config/api';
 
@@ -85,6 +80,7 @@ function App() {
       <Route path='/add-artist' element={<AddArtist />} />
       <Route path='/pay' element={<MenuTransaksi />} />
       <Route path='/' element={<HomeSuccess />} />
+      <Route path='/dumbsound' element={<HomePaySuccess />} />
       <Route path='/complain' element={<Complain />} />
       <Route path='/complain-admin' element={<ComplainAdmin />} />
     </Routes>

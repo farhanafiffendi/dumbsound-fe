@@ -1,49 +1,12 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React from 'react'
 import HeaderHome from '../../components/HeaderHome'
-import CardHome from '../../components/card/CardHome'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
-import song from '../../components/assets/adele.mp3'
 import NavbarAdmin from '../../components/NavbarAdmin';
 import { Link } from 'react-router-dom';
 import { API } from '../../config/api'
 import { useQuery } from "react-query";
-import { UserContext } from '../../context/userContext';
 
 export default function HomeSuccess() {
-
-    const [state, dispatch] = useContext(UserContext);
-
-    const [user, setUser] = useState({})
-    const [userTrans, setUserTrans] = useState({})
-    console.log(userTrans);
-
-    const loadUser = async () => {
-        try {
-            const response = await API.get(`user/${state.user.id}`)
-            setUser(response.data.data.user)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const loadUserTrans = async () => {
-        try {
-            const response = await API.get(`userTrans/${state.user.id}`)
-            setUserTrans(response.data.data.user.transaction)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        loadUser()
-    }, [])
-
-    useEffect(() => {
-        loadUserTrans()
-    }, [])
 
     // Fetching product data from database
     let { data: musics, refetch } = useQuery("musicsCache", async () => {
@@ -73,46 +36,32 @@ export default function HomeSuccess() {
                 <span className='header-card text-center'><p>Dengarkan Dan Rasakan</p></span>
                 <div>
                     <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
-                        {/* ================= Ketika User Belum Bayar Atau Status pending ==========*/}
-                        {userTrans.status === "pending" ?
-                            <>
-                                <Link to='/pay' className='none-item'>
-                                    {musics?.map((item, index) => {
-                                        return (
-                                            <div className='card-item mb-3 me-3'>
-                                                <div className='card-item-header'>
-                                                    <img src={item.thumbnail} alt="" />
-                                                </div>
-                                                <div className="text-card">
-                                                    <span className='text-title'>
-                                                        <p>{item.title}</p>
-                                                    </span>
-                                                    <p>{item.year}</p>
-                                                </div>
-                                                <div className='flex-start'>
-                                                    <p>{item.art.name}</p>
-                                                </div>
+                        {/* ================= Ketika User Belum Pernah Transaksi ==========*/}
+                        <>
+                            <Link to='/pay' className='none-item'>
+                                {musics?.map((item, index) => {
+                                    return (
+                                        <div className='card-item mb-3 me-3'>
+                                            <div className='card-item-header'>
+                                                <img src={item.thumbnail} alt="" />
                                             </div>
-                                        )
-                                    })}
-                                </Link>
-                            </>
-                            :
-                            //=====================ketika status success===================
-                            <>
-                                <p>Sukse</p>
-                            </>
-                        }
-
+                                            <div className="text-card">
+                                                <span className='text-title'>
+                                                    <p>{item.title}</p>
+                                                </span>
+                                                <p>{item.year}</p>
+                                            </div>
+                                            <div className='flex-start'>
+                                                <p>{item.art.name}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </Link>
+                        </>
                     </div>
                 </div>
             </div>
-            <AudioPlayer
-                className='media-player'
-                autoPlay
-                src={song}
-                onPlay={e => console.log("onPlay")}
-            />
         </>
     )
 }

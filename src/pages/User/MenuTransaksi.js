@@ -9,19 +9,6 @@ export default function MenuTransaksi() {
 
     let navigate = useNavigate();
 
-    let { data: transactions } = useQuery('transactionsCache', async () => {
-        const config = {
-            method: "GET",
-            headers: {
-                Authorization: "Basic " + localStorage.token,
-            },
-        };
-        const response = await API.get('/transactions', config);
-        return response.data.transactions;
-    });
-
-
-
     useEffect(() => {
         //change this to the script source you want to load, for example this is snap.js sandbox env
         const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
@@ -49,7 +36,12 @@ export default function MenuTransaksi() {
                 },
             };
 
-            const response = await API.post('/transaction', config);
+            const body = {
+                startDate: "",
+                dueDate: "",
+            };
+
+            const response = await API.post('/transaction', body, config);
 
             // Create variabel for store token payment from response here ...
             const token = response.data.payment.token;
@@ -57,12 +49,12 @@ export default function MenuTransaksi() {
                 onSuccess: function (result) {
                     /* You may add your own implementation here */
                     console.log(result);
-                    navigate("/");
+                    navigate("/dumbsound");
                 },
                 onPending: function (result) {
                     /* You may add your own implementation here */
                     console.log(result);
-                    navigate("/");
+                    navigate("/dumbsound");
                 },
                 onError: function (result) {
                     /* You may add your own implementation here */
