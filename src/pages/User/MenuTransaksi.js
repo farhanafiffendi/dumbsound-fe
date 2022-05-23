@@ -20,7 +20,7 @@ export default function MenuTransaksi() {
         return response.data.transactions;
     });
 
-    console.log(transactions);
+
 
     useEffect(() => {
         //change this to the script source you want to load, for example this is snap.js sandbox env
@@ -49,13 +49,7 @@ export default function MenuTransaksi() {
                 },
             };
 
-            const data = {
-                price: transactions.price,
-            };
-
-            const body = JSON.stringify(data);
-
-            const response = await API.post('/transaction', body, config);
+            const response = await API.post('/transaction', config);
 
             // Create variabel for store token payment from response here ...
             const token = response.data.payment.token;
@@ -89,15 +83,17 @@ export default function MenuTransaksi() {
         <>
             <NavbarAdmin />
             <div className='container item-transaksi'>
-                <div className='d-flex justify-content-center align-items-center'>
-                    <div className='flex-direction text-center'>
-                        <span className='premium-text'><p>premium</p></span>
-                        <span className='premium-music'><p>Bayar sekarang dan nikmati streaming music yang kekinian dari dumbsound</p></span>
-                        <p>Lakukan pembayaran sekarang untuk mengaktifkan masa langganan</p>
-                        <span className='harga-premium'><p>Rp.20.000/bulan</p></span>
-                        <button className='btn btn-danger' onClick={() => handleBuy.mutate()}>Bayar</button>
+                <>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <div className='flex-direction text-center'>
+                            <span className='premium-text'><p>premium</p></span>
+                            <span className='premium-music'><p>Bayar sekarang dan nikmati streaming music yang kekinian dari dumbsound</p></span>
+                            <p>Lakukan pembayaran sekarang untuk mengaktifkan masa langganan</p>
+                            <span className='harga-premium'><p>Rp.20.000/bulan</p></span>
+                            <button className='btn btn-danger' onClick={() => handleBuy.mutate()}>Bayar</button>
+                        </div>
                     </div>
-                </div>
+                </>
             </div>
         </>
     )

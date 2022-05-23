@@ -9,8 +9,41 @@ import NavbarAdmin from '../../components/NavbarAdmin';
 import { Link } from 'react-router-dom';
 import { API } from '../../config/api'
 import { useQuery } from "react-query";
+import { UserContext } from '../../context/userContext';
 
 export default function HomeSuccess() {
+
+    const [state, dispatch] = useContext(UserContext);
+
+    const [user, setUser] = useState({})
+    const [userTrans, setUserTrans] = useState({})
+    console.log(userTrans);
+
+    const loadUser = async () => {
+        try {
+            const response = await API.get(`user/${state.user.id}`)
+            setUser(response.data.data.user)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const loadUserTrans = async () => {
+        try {
+            const response = await API.get(`userTrans/${state.user.id}`)
+            setUserTrans(response.data.data.user.transaction)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        loadUser()
+    }, [])
+
+    useEffect(() => {
+        loadUserTrans()
+    }, [])
 
     // Fetching product data from database
     let { data: musics, refetch } = useQuery("musicsCache", async () => {
@@ -23,22 +56,6 @@ export default function HomeSuccess() {
         const response = await API.get("/musics", config);
         return response.data.data;
     });
-
-    const [userTrans, setUserTrans] = useState({})
-    console.log(userTrans);
-
-    const loadUserTrans = async () => {
-        try {
-            const response = await API.get("/transactions")
-            setUserTrans(response.data.transactions)
-        } catch (error) {
-            console.log(error)
-        }
-    };
-
-    useEffect(() => {
-        loadUserTrans()
-    }, []);
 
 
     return (
@@ -57,7 +74,7 @@ export default function HomeSuccess() {
                 <div>
                     <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
                         {/* ================= Ketika User Belum Bayar Atau Status pending ==========*/}
-                        {userTrans.status = "pending" ?
+                        {userTrans.status === "pending" ?
                             <>
                                 <Link to='/pay' className='none-item'>
                                     {musics?.map((item, index) => {
@@ -82,7 +99,9 @@ export default function HomeSuccess() {
                             </>
                             :
                             //=====================ketika status success===================
-                            <></>
+                            <>
+                                <p>Sukse</p>
+                            </>
                         }
 
                     </div>
