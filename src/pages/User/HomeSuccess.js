@@ -15,7 +15,9 @@ export default function HomeSuccess() {
     const [state, dispatch] = useContext(UserContext);
 
     const [userTrans, setUserTrans] = useState({})
-    console.log(userTrans);
+    const [musicId, setMusicId] = useState("")
+    const [musics, setMusics] = useState([])
+    console.log(musicId);
 
     const loadUserTrans = async () => {
         try {
@@ -36,17 +38,25 @@ export default function HomeSuccess() {
         loadUserTrans()
     }, [])
 
-    // Fetching product data from database
-    let { data: musics, refetch } = useQuery("musicsCache", async () => {
-        const config = {
-            method: "GET",
-            headers: {
-                Authorization: "Basic " + localStorage.token,
-            },
-        };
-        const response = await API.get("/musics", config);
-        return response.data.data;
-    });
+
+    const loadMusic = async () => {
+        try {
+            const config = {
+                headers: {
+                    Authorization: "Basic " + localStorage.token,
+                    "Content-type": "application/json",
+                },
+            };
+            const response = await API.get(`musics`, config)
+            setMusics(response.data.data)
+            console.log(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        loadMusic()
+    }, [])
 
 
     return (
@@ -64,13 +74,14 @@ export default function HomeSuccess() {
                 <span className='header-card text-center'><p>Dengarkan Dan Rasakan</p></span>
                 <div>
                     <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
-                        {/* ================= Ketika User Belum Bayar Atau Status pending ==========*/}
+                        {/* ================= Ketika belum ada transaksi==========*/}
                         {userTrans === null ?
                             <>
-                                <Link to='/pay' className='none-item'>
-                                    {musics?.map((item, index) => {
-                                        return (
-                                            <div className='card-item mb-3 me-3'>
+
+                                {musics?.map((item, index) => {
+                                    return (
+                                        <Link to='/pay' className='none-item'>
+                                            <div className='card-item mb-3 me-3' >
                                                 <div className='card-item-header'>
                                                     <img src={item.thumbnail} alt="" />
                                                 </div>
@@ -84,9 +95,10 @@ export default function HomeSuccess() {
                                                     <p>{item.art.name}</p>
                                                 </div>
                                             </div>
-                                        )
-                                    })}
-                                </Link>
+                                        </Link>
+                                    )
+                                })}
+
                             </>
                             :
                             //=====================ketika status success===================
@@ -95,7 +107,7 @@ export default function HomeSuccess() {
                                     <>
                                         {musics?.map((item, index) => {
                                             return (
-                                                <div className='card-item mb-3 me-3'>
+                                                <div className='card-item mb-3 me-3' onClick={() => setMusicId(item)}>
                                                     <div className='card-item-header'>
                                                         <img src={item.thumbnail} alt="" />
                                                     </div>
@@ -115,6 +127,26 @@ export default function HomeSuccess() {
                                     </>
                                     :
                                     <>
+                                        {musics?.map((item, index) => {
+                                            return (
+                                                <Link to='/pay' className='none-item'>
+                                                    <div className='card-item mb-3 me-3' >
+                                                        <div className='card-item-header'>
+                                                            <img src={item.thumbnail} alt="" />
+                                                        </div>
+                                                        <div className="text-card">
+                                                            <span className='text-title'>
+                                                                <p>{item.title}</p>
+                                                            </span>
+                                                            <p>{item.year}</p>
+                                                        </div>
+                                                        <div className='flex-start'>
+                                                            <p>{item.art.name}</p>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            )
+                                        })}
                                     </>
                                 }
                             </>
@@ -122,12 +154,15 @@ export default function HomeSuccess() {
                     </div>
                 </div>
             </div>
-            <AudioPlayer
-                className='media-player'
-                autoPlay
-                src={song}
-                onPlay={e => console.log("onPlay")}
-            />
+            {musicId === "" ?
+                <div></div> :
+                <AudioPlayer
+                    className='media-player'
+                    autoPlay
+                    src={musicId.attache}
+                    onPlay={e => console.log("onPlay")}
+                />
+            }
         </>
     )
 }
