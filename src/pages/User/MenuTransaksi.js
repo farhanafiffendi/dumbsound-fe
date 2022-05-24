@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import NavbarAdmin from '../../components/NavbarAdmin'
+import NavbarUserLog from '../../components/NavbarUserLog'
 import { API } from '../../config/api'
 import { useParams, useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
@@ -73,7 +73,7 @@ export default function MenuTransaksi() {
 
     return (
         <>
-            <NavbarAdmin />
+            <NavbarUserLog />
             <div className='container item-transaksi'>
                 <>
                     <div className='d-flex justify-content-center align-items-center'>

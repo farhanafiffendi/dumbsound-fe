@@ -62,7 +62,7 @@ const AddArtis = () => {
   }
 
   return (
-    <div className="container my-5">
+    <div className="container">
       <NavbarAdmin />
       <Form onSubmit={handleOnSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

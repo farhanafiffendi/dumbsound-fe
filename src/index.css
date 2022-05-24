@@ -300,6 +300,12 @@ option:focus {
     text-decoration: none !important;
 }
 
+.logo-nav{
+  margin-bottom: -100px;
+  z-index: 30 !important;
+  margin-left: 30px !important;
+}
+
 .none-item{
   text-decoration: none !important;
 }

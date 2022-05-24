@@ -4,10 +4,10 @@ import { UserContext } from "../context/userContext";
 import { Nav } from 'react-bootstrap';
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Logo from './assets/shapes.png'
+import Logo from './assets/logo.png'
 
 
-export default function NavbarAdmin() {
+export default function NavbarUserLog() {
     let navigate = useNavigate()
 
     const [state, dispatch] = useContext(UserContext);
@@ -22,7 +22,7 @@ export default function NavbarAdmin() {
     return (
         <>
             <div className="container d-flex justify-content-between mt-3 fixed-top">
-                <Link as={Link} to='/'>
+                <Link style={{ marginTop: "20px" }} to='/'>
                     <div className='flex-start'>
                         <div>
                             <img src={Logo} alt="" />
@@ -35,9 +35,7 @@ export default function NavbarAdmin() {
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <Nav.Link as={Link} to="/add-music"><a class="dropdown-item">Add Music</a></Nav.Link>
-                        <Nav.Link as={Link} to="/add-artist"><a class="dropdown-item">Add Artist</a></Nav.Link>
-                        <Nav.Link as={Link} to="/complain"><a class="dropdown-item">List Transaction</a></Nav.Link>
+                        <Nav.Link as={Link} to="/complain"><a class="dropdown-item">Complain</a></Nav.Link>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" onClick={logout}>Logout</a></li>
                     </ul>

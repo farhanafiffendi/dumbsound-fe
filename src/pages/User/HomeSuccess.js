@@ -3,8 +3,7 @@ import HeaderHome from '../../components/HeaderHome'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import song from '../../components/assets/adele.mp3'
-import NavbarAdmin from '../../components/NavbarAdmin';
+import NavbarUserLog from '../../components/NavbarUserLog'
 import { Link } from 'react-router-dom';
 import { API } from '../../config/api'
 import { useQuery } from "react-query";
@@ -17,7 +16,7 @@ export default function HomeSuccess() {
     const [userTrans, setUserTrans] = useState({})
     const [musicId, setMusicId] = useState("")
     const [musics, setMusics] = useState([])
-    console.log(musicId);
+    console.log(userTrans);
 
     const loadUserTrans = async () => {
         try {
@@ -49,7 +48,6 @@ export default function HomeSuccess() {
             };
             const response = await API.get(`musics`, config)
             setMusics(response.data.data)
-            console.log(response.data.data)
         } catch (error) {
             console.log(error)
         }
@@ -62,7 +60,7 @@ export default function HomeSuccess() {
     return (
         <>
             {/* =============================Navbar======================================== */}
-            <NavbarAdmin />
+            <NavbarUserLog />
 
             {/* =============================Background Image======================================== */}
             <div className='margin-header mb-5'>

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react'
 
 import { Container, Row, Col } from 'react-bootstrap'
 import Contact from '../components/complain/Contact'
+import NavbarAdmin from '../components/NavbarAdmin'
 
 // import here
 import { UserContext } from '../context/userContext'
@@ -99,6 +100,7 @@ export default function ComplainAdmin() {
 
     return (
         <>
+            <NavbarAdmin />
             <Container fluid style={{ height: '89.5vh' }}>
                 <Row>
                     <Col md={3} style={{ height: '89.5vh' }} className="px-3 border-end border-dark overflow-auto">

@@ -26,6 +26,8 @@ export default function HomePage() {
         return response.data.data;
     });
 
+    console.log(musics);
+
     const [state] = useContext(UserContext);
 
     const checkAuth = () => {
