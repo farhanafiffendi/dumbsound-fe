@@ -12,6 +12,7 @@ import MenuTransaksi from './pages/User/MenuTransaksi'
 import Complain from './pages/Complain';
 import ComplainAdmin from './pages/ComplainAdmin';
 import MusicList from './pages/Admin/MusicList';
+import ListTransaction from './pages/Admin/ListTransaction';
 
 import { setAuthToken, API } from './config/api';
 
@@ -82,7 +83,8 @@ function App() {
       <Route path='/' element={<HomeSuccess />} />
       <Route path='/complain' element={<Complain />} />
       <Route path='/complain-admin' element={<ComplainAdmin />} />
-      <Route path='/list-transaction' element={<MusicList />} />
+      <Route path='/music-list' element={<MusicList />} />
+      <Route path='/list-transaction' element={<ListTransaction />} />
     </Routes>
   );
 }

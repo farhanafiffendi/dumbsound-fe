@@ -37,7 +37,8 @@ export default function NavbarAdmin() {
                     <ul class="dropdown-menu">
                         <Nav.Link as={Link} to="/add-music"><a class="dropdown-item">Add Music</a></Nav.Link>
                         <Nav.Link as={Link} to="/add-artist"><a class="dropdown-item">Add Artist</a></Nav.Link>
-                        <Nav.Link as={Link} to="/list-transaction"><a class="dropdown-item">List Music</a></Nav.Link>
+                        <Nav.Link as={Link} to="/music-list"><a class="dropdown-item">List Music</a></Nav.Link>
+                        <Nav.Link as={Link} to="/list-transaction"><a class="dropdown-item">List Transaction</a></Nav.Link>
                         <Nav.Link as={Link} to="/complain-admin"><a class="dropdown-item">Complain Admin</a></Nav.Link>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" onClick={logout}>Logout</a></li>
