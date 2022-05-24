@@ -38,7 +38,7 @@ export default function MenuTransaksi() {
 
             const body = {
                 startDate: "",
-                dueDate: "",
+                price: "20000",
             };
 
             const response = await API.post('/transaction', body, config);
