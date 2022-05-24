@@ -21,7 +21,7 @@ export default function NavbarUserLog() {
 
     return (
         <>
-            <div className="container d-flex justify-content-between mt-3 fixed-top">
+            <div className="container d-flex justify-content-between my-3">
                 <Link style={{ marginTop: "20px" }} to='/'>
                     <div className='flex-start'>
                         <div>

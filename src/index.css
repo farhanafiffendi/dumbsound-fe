@@ -437,6 +437,7 @@ option:focus {
   border-bottom: 15px solid transparent;
 }
 
+
 @media (min-width: 992px) { 
     .containerLogin{
         display: flex !important;

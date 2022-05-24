@@ -85,7 +85,7 @@ export default function HomeSuccess() {
                                                 </div>
                                                 <div className="text-card">
                                                     <span className='text-title'>
-                                                        <p>{item.title}</p>
+                                                        <p>{`${item.title}`.slice(0, 10) + '...'}</p>
                                                     </span>
                                                     <p>{item.year}</p>
                                                 </div>
@@ -111,7 +111,7 @@ export default function HomeSuccess() {
                                                     </div>
                                                     <div className="text-card">
                                                         <span className='text-title'>
-                                                            <p>{item.title}</p>
+                                                            <p>{`${item.title}`.slice(0, 10) + '...'}</p>
                                                         </span>
                                                         <p>{item.year}</p>
                                                     </div>
@@ -134,7 +134,7 @@ export default function HomeSuccess() {
                                                         </div>
                                                         <div className="text-card">
                                                             <span className='text-title'>
-                                                                <p>{item.title}</p>
+                                                                <p>{`${item.title}`.slice(0, 10) + '...'}</p>
                                                             </span>
                                                             <p>{item.year}</p>
                                                         </div>
@@ -154,12 +154,16 @@ export default function HomeSuccess() {
             </div>
             {musicId === "" ?
                 <div></div> :
-                <AudioPlayer
-                    className='media-player'
-                    autoPlay
-                    src={musicId.attache}
-                    onPlay={e => console.log("onPlay")}
-                />
+                <div className='text-center' style={{ background: 'rgb(56, 8, 8)' }}>
+                    <p>{musicId.title}</p>
+                    <AudioPlayer
+                        className='media-player'
+                        autoPlay
+                        src={musicId.attache}
+                        onPlay={e => console.log("onPlay")}
+                    />
+                </div>
+
             }
         </>
     )
