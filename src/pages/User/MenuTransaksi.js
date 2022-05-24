@@ -49,12 +49,12 @@ export default function MenuTransaksi() {
                 onSuccess: function (result) {
                     /* You may add your own implementation here */
                     console.log(result);
-                    navigate("/dumbsound");
+                    navigate("/");
                 },
                 onPending: function (result) {
                     /* You may add your own implementation here */
                     console.log(result);
-                    navigate("/dumbsound");
+                    navigate("/");
                 },
                 onError: function (result) {
                     /* You may add your own implementation here */
