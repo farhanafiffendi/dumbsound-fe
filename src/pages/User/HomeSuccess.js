@@ -13,30 +13,45 @@ export default function HomeSuccess() {
     const [state] = useContext(UserContext);
     console.log(state);
 
-    const [userTrans, setUserTrans] = useState({})
-    const [musicId, setMusicId] = useState("")
-    const [musics, setMusics] = useState([])
+    const [userTrans, setUserTrans] = useState({});
+    const [musicId, setMusicId] = useState("");
+    const [musics, setMusics] = useState([]);
     console.log(userTrans);
-
-    const config = {
-        headers: {
-            Authorization: "Basic " + localStorage.token,
-            "Content-type": "application/json",
-        },
-    };
 
     useEffect(() => {
         const loadUserTrans = async () => {
-            const response = await API.get(`userTrans/${state.user.id}`, config);
-            setUserTrans(response.data.data.user.transaction);
+            try {
+                const config = {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Basic " + localStorage.token,
+                    },
+                };
+                const response = await API.get(`userTrans/${state.user.id}`, config);
+                setUserTrans(response.data.data.user.transaction);
+            } catch (error) {
+                console.log(error);
+            }
         }
         loadUserTrans();
     }, []);
 
     useEffect(() => {
         const loadMusic = async () => {
-            const response = await API.get('/musics', config);
-            setMusics(response.data.data);
+            try {
+                const config = {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Basic " + localStorage.token,
+                    },
+                };
+                const response = await API.get('/musics', config);
+                setMusics(response.data.data);
+            } catch (error) {
+                setTimeout(() => {
+                }, 500)
+                console.log(error);
+            }
         }
         loadMusic();
     }, []);
@@ -44,20 +59,20 @@ export default function HomeSuccess() {
 
     return (
         <>
-            {/* =============================Navbar======================================== */}
+            {/* navbar */}
             <NavbarUserLog />
 
-            {/* =============================Background Image======================================== */}
+            {/* banner */}
             <div className='margin-header mb-5'>
                 <HeaderHome />
             </div>
 
-            {/* =============================Card======================================== */}
+            {/* card */}
             <div className="container-fluid content-color py-5">
                 <span className='header-card text-center'><p>Dengarkan Dan Rasakan</p></span>
                 <div>
                     <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
-                        {/* ================= Ketika belum ada transaksi==========*/}
+                        {/* ketika status transaksi null atau tidak ada transaksi */}
                         {userTrans === null ? (
                             <>
                                 {musics?.map((item, index) => {

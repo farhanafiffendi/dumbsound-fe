@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { UserContext } from "../context/userContext";
 import { Nav } from 'react-bootstrap';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Logo from './assets/logo.png'
 
@@ -30,12 +30,13 @@ export default function NavbarUserLog() {
                     </div>
                 </Link>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-radius">{`${state.user.fullname}`.slice(0, 1).toUpperCase()}</button>
+                    <button type="button" class="btn btn-danger btn-radius">{`${state.user.fullname}`.toUpperCase().slice(0, 1)}</button>
                     <button type="button" class="btn btn-danger drop dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu">
                         <Nav.Link as={Link} to="/complain"><a class="dropdown-item">Complain</a></Nav.Link>
+                        <Nav.Link as={Link} to="/pay"><a class="dropdown-item">Pay</a></Nav.Link>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" onClick={logout}>Logout</a></li>
                     </ul>

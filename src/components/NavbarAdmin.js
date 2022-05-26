@@ -30,7 +30,7 @@ export default function NavbarAdmin() {
                     </div>
                 </Link>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-radius">{`${state.user.fullname}`.slice(0, 1).toUpperCase()}</button>
+                    <button type="button" class="btn btn-danger btn-radius">{`${state.user.fullname}`.toUpperCase().slice(0, 1)}</button>
                     <button type="button" class="btn btn-danger drop dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>

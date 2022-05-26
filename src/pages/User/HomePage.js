@@ -2,9 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import NavbarUser from '../../components/NavbarUser'
 import HeaderHome from '../../components/HeaderHome'
-import CardHome from '../../components/card/CardHome'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Masonry from 'react-masonry-css'
 import Register from '../../components/auth/Register'
 import Login from '../../components/auth/Login'
 import { API } from '../../config/api'
@@ -16,13 +14,7 @@ export default function HomePage() {
     let navigate = useNavigate();
 
     let { data: musics, refetch } = useQuery("musicsCache", async () => {
-        const config = {
-            method: "GET",
-            headers: {
-                Authorization: "Basic " + localStorage.token,
-            },
-        };
-        const response = await API.get("/musics", config);
+        const response = await API.get("/musics-home");
         return response.data.data;
     });
 
