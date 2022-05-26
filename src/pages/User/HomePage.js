@@ -63,7 +63,7 @@ export default function HomePage() {
                                     </div>
                                     <div className="text-card">
                                         <span className='text-title'>
-                                            <p>{item.title}</p>
+                                            <p>{`${item.title}`.slice(0, 10) + '...'}</p>
                                         </span>
                                         <p>{item.year}</p>
                                     </div>

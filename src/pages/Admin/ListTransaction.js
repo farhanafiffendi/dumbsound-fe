@@ -1,15 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { API } from '../../config/api'
 import { Table } from 'react-bootstrap';
-import { UserContext } from '../../context/userContext';
 import NavbarAdmin from '../../components/NavbarAdmin';
 
 export default function ListTransaction() {
 
-    const [state, dispatch] = useContext(UserContext);
-
     const [userTrans, setUserTrans] = useState([])
-    console.log(userTrans);
+    const [transAdmin, setTransAdmin] = useState({})
+    console.log(transAdmin);
 
     const loadUserTrans = async () => {
         try {
@@ -30,6 +28,8 @@ export default function ListTransaction() {
         loadUserTrans()
     }, [])
 
+    console.log("halo:", userTrans.status)
+
     return (
         <div className='container'>
             <NavbarAdmin />
@@ -38,7 +38,7 @@ export default function ListTransaction() {
                     <tr>
                         <th>No</th>
                         <th>User</th>
-                        <th>Due date</th>
+                        <th>End Date</th>
                         <th>Status Payment</th>
                     </tr>
                 </thead>
