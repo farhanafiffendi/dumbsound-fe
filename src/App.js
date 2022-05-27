@@ -13,6 +13,7 @@ import Complain from './pages/Complain';
 import ComplainAdmin from './pages/ComplainAdmin';
 import MusicList from './pages/Admin/MusicList';
 import ListTransaction from './pages/Admin/ListTransaction';
+import NotFound from './pages/NotFound';
 
 import { setAuthToken, API } from './config/api';
 
@@ -22,26 +23,8 @@ if (localStorage.token) {
 
 function App() {
 
-  let navigate = useNavigate();
-
   // Init user context here ...
   const [state, dispatch] = useContext(UserContext)
-
-  useEffect(() => {
-    // Redirect Auth
-    if (state.isLogin === false) {
-      navigate('/homepage');
-    } else {
-      if (state.user.status === 'admin') {
-        navigate('/add-music');
-      } else if (state.user.status === 'customer') {
-        navigate('/');
-      }
-    }
-  }, [state]);
-
-  console.log(state);
-
 
   // Create function for check user token here ...
   const checkUser = async () => {
@@ -81,17 +64,34 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path='/homepage' element={<HomePage />} />
-      <Route path='/add-music' element={<AddMusic />} />
-      <Route path='/add-artist' element={<AddArtist />} />
-      <Route path='/pay' element={<MenuTransaksi />} />
-      <Route path='/' element={<HomeSuccess />} />
-      <Route path='/complain' element={<Complain />} />
-      <Route path='/complain-admin' element={<ComplainAdmin />} />
-      <Route path='/music-list' element={<MusicList />} />
-      <Route path='/list-transaction' element={<ListTransaction />} />
-    </Routes>
+    <>
+      <Routes>
+        {state.user.status === 'admin' ? (
+          <>
+            <Route path='/add-music' element={<AddMusic />} />
+            <Route path='/add-artist' element={<AddArtist />} />
+            <Route path='/complain-admin' element={<ComplainAdmin />} />
+            <Route path='/music-list' element={<MusicList />} />
+            <Route path='/list-transaction' element={<ListTransaction />} />
+            <Route path='*' element={<NotFound />} />
+          </>
+        ) : state.isLogin === false ? (
+          <>
+            <Route path='/homepage' element={<HomePage />} />
+          </>
+        ) : state.isLogin === true ? (
+          <>
+            <Route path='/pay' element={<MenuTransaksi />} />
+            <Route path='/' element={<HomeSuccess />} />
+            <Route path='/complain' element={<Complain />} />
+            <Route path='*' element={<NotFound />} />
+          </>
+        ) : (
+          <>
+          </>
+        )}
+      </Routes>
+    </>
   );
 }
 
