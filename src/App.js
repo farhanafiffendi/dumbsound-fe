@@ -32,10 +32,10 @@ function App() {
   useEffect(() => {
     // Redirect Auth
     if (state.isLogin === false) {
-      navigate('/auth');
+      navigate('/homepage');
     } else {
       if (state.user.status === 'admin') {
-        navigate('/category');
+        navigate('/list-transaction');
       } else if (state.user.status === 'customer') {
         navigate('/');
       }
