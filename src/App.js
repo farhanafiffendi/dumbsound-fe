@@ -27,8 +27,6 @@ function App() {
   // Init user context here ...
   const [state, dispatch] = useContext(UserContext);
 
-  const [state, dispatch] = useContext(UserContext)
-
   useEffect(() => {
     // Redirect Auth
     if (state.isLogin === false) {
