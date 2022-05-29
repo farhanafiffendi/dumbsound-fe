@@ -147,7 +147,7 @@ export default function Register() {
         <div className="container mt-5 text-light">
             <div className="col-lg-12 d-flex justify-content-center">
                 <div className="row">
-                    <div className="d-flex justify-content-end">
+                    <div className="d-flex justify-content-center">
                         <div className="containerRegister form">
                             <form onSubmit={(e) => handleSubmit.mutate(e)}>
                                 <div>{message && message}</div>
