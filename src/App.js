@@ -80,15 +80,15 @@ function App() {
     checkUser();
   }, []);
 
-  const PrivateRoute = (props) => {
-    let isLogin = false
-    if (localStorage.token) {
-      isLogin = true
-    }
-    return (
-      isLogin ? <Outlet /> : <Navigate to="homepage" />
-    )
-  }
+  // const PrivateRoute = (props) => {
+  //   let isLogin = false
+  //   if (localStorage.token) {
+  //     isLogin = true
+  //   }
+  //   return (
+  //     isLogin ? <Outlet /> : <Navigate to="homepage" />
+  //   )
+  // }
 
   return (
     <>
