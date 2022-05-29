@@ -43,7 +43,7 @@ function App() {
   }, [state]);
 
 
-  // Create function for check user token here ...
+  // Create function for check user token here ..
   const checkUser = async () => {
     try {
       const config = {
