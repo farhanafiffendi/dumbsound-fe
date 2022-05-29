@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 export const API = axios.create({
-    baseURL: 'http://localhost:5000/api/v1/',
+    baseURL: process.env.REACT_APP_SERVER_URL || 'https://dumbsound-farhan.herokuapp.com/api/v1'
+        || 'http://localhost:5000/api/v1',
 });
 
 export const setAuthToken = (token) => {
