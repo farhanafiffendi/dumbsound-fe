@@ -17,16 +17,14 @@ export default function MenuTransaksi() {
     const [userPay, setUserPay] = useState({});
     console.log(userPay);
 
-    const durasi = () => {
-        const end = new Date().getTime() || new Date(`${userPay.dueDate}`).getTime();
-        const start = new Date().getTime();
-        const selisih = end - start;
+    const end = new Date().getTime() || new Date(`${userPay.dueDate}`).getTime();
+    const start = new Date().getTime();
+    const selisih = end - start;
 
-        const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-        const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-        const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
-        const detik = Math.floor(selisih % (1000 * 60) / (1000));
-    }
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+    const detik = Math.floor(selisih % (1000 * 60) / (1000));
 
     useEffect(() => {
         const loadUserTrans = async () => {
@@ -128,7 +126,7 @@ export default function MenuTransaksi() {
                         <div className='d-flex align-items-center'>
                             <div className='flex-direction text-center'>
                                 <h4>Anda Sudah Membayar Premium</h4>
-                                <p>Masa berlangganan anda tinggal hari</p>
+                                <p>Masa berlangganan anda tinggal hari {hari}</p>
                                 <img src={logoSuccess} alt="" style={{ height: '350px', marginTop: '20px' }} />
                             </div>
                         </div>
