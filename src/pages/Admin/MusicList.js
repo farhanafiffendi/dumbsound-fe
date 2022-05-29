@@ -18,7 +18,7 @@ export default function MusicList() {
     const handleShow = () => setShow(true);
 
     let { data: musics, refetch } = useQuery('musicsCache', async () => {
-        const response = await API.get('/musics');
+        const response = await API.get('/music-home');
         return response.data.data;
     });
 
