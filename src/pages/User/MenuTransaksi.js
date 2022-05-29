@@ -17,16 +17,16 @@ export default function MenuTransaksi() {
     const [userPay, setUserPay] = useState({});
     console.log(userPay);
 
-    // const durasi = () => {
-    //     const end = new Date(`${userPay.dueDate}`).getTime();
-    //     const start = new Date().getTime();
-    //     const selisih = end - start;
+    const durasi = () => {
+        const end = new Date().getTime() || new Date(`${userPay.dueDate}`).getTime();
+        const start = new Date().getTime();
+        const selisih = end - start;
 
-    //     const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-    //     const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-    //     const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
-    //     const detik = Math.floor(selisih % (1000 * 60) / (1000));
-    // }
+        const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+        const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+        const detik = Math.floor(selisih % (1000 * 60) / (1000));
+    }
 
     useEffect(() => {
         const loadUserTrans = async () => {
