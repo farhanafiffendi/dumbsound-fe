@@ -78,14 +78,31 @@ function App() {
       <Routes>
         <Route path='/homepage' element={<HomePage />} />
         <Route element={<PrivateRoute />}>
-          <Route path='/add-music' element={<AddMusic />} />
-          <Route path='/add-artist' element={<AddArtist />} />
-          <Route path='/complain-admin' element={<ComplainAdmin />} />
-          <Route path='/music-list' element={<MusicList />} />
-          <Route path='/list-transaction' element={<ListTransaction />} />
-          <Route path='/pay' element={<MenuTransaksi />} />
-          <Route path='/' element={<HomeSuccess />} />
-          <Route path='/complain' element={<Complain />} />
+          {state.isLogin === true ? (
+            <>
+              {state.user.status === "admin" ? (
+                <>
+                  <Route path='/add-music' element={<AddMusic />} />
+                  <Route path='/add-artist' element={<AddArtist />} />
+                  <Route path='/complain-admin' element={<ComplainAdmin />} />
+                  <Route path='/music-list' element={<MusicList />} />
+                  <Route path='/list-transaction' element={<ListTransaction />} />
+                  <Route path='*' element={<NotFound />} />
+                </>
+              ) : (
+                <>
+                  <Route path='/pay' element={<MenuTransaksi />} />
+                  <Route path='/' element={<HomeSuccess />} />
+                  <Route path='/complain' element={<Complain />} />
+                  <Route path='*' element={<NotFound />} />
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              <Route path='*' element={<HomePage />} />
+            </>
+          )}
         </Route>
       </Routes>
     </>
