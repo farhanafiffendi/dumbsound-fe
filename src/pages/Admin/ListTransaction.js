@@ -12,9 +12,9 @@ export default function ListTransaction() {
     const loadUserTrans = async () => {
         try {
             const config = {
+                method: "GET",
                 headers: {
                     Authorization: "Basic " + localStorage.token,
-                    "Content-type": "application/json",
                 },
             };
             const response = await API.get('/transactions', config)
