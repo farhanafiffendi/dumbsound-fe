@@ -448,20 +448,10 @@ option:focus {
     }
 
      .containerRegister{
-        padding: 20px 25px;
-        width: 340px;
-        height: fit-content;
-        /* position: absolute; */
-        /* margin-top: 100px; */
-        /* top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); */
-        background-color: black;
-        z-index: 10;
-        right: 520px;
-        position: fixed;
-        margin-top: -520px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: start;
     }
 
     .carousel{
