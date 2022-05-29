@@ -8,13 +8,14 @@ import { UserContext } from '../../context/userContext';
 import logoSuccess from '../../components/assets/paySuccess.png';
 
 export default function MenuTransaksi() {
-    console.clear()
+    // console.clear()
 
     const [state] = useContext(UserContext);
 
     let navigate = useNavigate();
 
     const [userPay, setUserPay] = useState({});
+    console.log(userPay);
 
     const end = new Date(`${userPay.dueDate}`).getTime();
     const start = new Date().getTime();
@@ -24,7 +25,6 @@ export default function MenuTransaksi() {
     const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
     const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
     const detik = Math.floor(selisih % (1000 * 60) / (1000));
-    console.log(detik);
 
     useEffect(() => {
         const loadUserTrans = async () => {
