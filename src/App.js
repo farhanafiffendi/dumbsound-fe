@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { Routes, Route, Outlet, Navigate, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from './context/userContext';
 
@@ -22,9 +22,26 @@ if (localStorage.token) {
 }
 
 function App() {
+  let navigate = useNavigate();
 
   // Init user context here ...
+  const [state, dispatch] = useContext(UserContext);
+
   const [state, dispatch] = useContext(UserContext)
+
+  useEffect(() => {
+    // Redirect Auth
+    if (state.isLogin === false) {
+      navigate('/auth');
+    } else {
+      if (state.user.status === 'admin') {
+        navigate('/category');
+      } else if (state.user.status === 'customer') {
+        navigate('/');
+      }
+    }
+  }, [state]);
+
 
   // Create function for check user token here ...
   const checkUser = async () => {
@@ -77,33 +94,15 @@ function App() {
     <>
       <Routes>
         <Route path='/homepage' element={<HomePage />} />
-        <Route element={<PrivateRoute />}>
-          {state.isLogin === true ? (
-            <>
-              {state.user.status === "admin" ? (
-                <>
-                  <Route path='/add-music' element={<AddMusic />} />
-                  <Route path='/add-artist' element={<AddArtist />} />
-                  <Route path='/complain-admin' element={<ComplainAdmin />} />
-                  <Route path='/music-list' element={<MusicList />} />
-                  <Route path='/list-transaction' element={<ListTransaction />} />
-                  <Route path='*' element={<NotFound />} />
-                </>
-              ) : (
-                <>
-                  <Route path='/pay' element={<MenuTransaksi />} />
-                  <Route path='/' element={<HomeSuccess />} />
-                  <Route path='/complain' element={<Complain />} />
-                  <Route path='*' element={<NotFound />} />
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              <Route path='*' element={<HomePage />} />
-            </>
-          )}
-        </Route>
+        <Route path='/add-music' element={<AddMusic />} />
+        <Route path='/add-artist' element={<AddArtist />} />
+        <Route path='/complain-admin' element={<ComplainAdmin />} />
+        <Route path='/music-list' element={<MusicList />} />
+        <Route path='/list-transaction' element={<ListTransaction />} />
+        <Route path='*' element={<NotFound />} />
+        <Route path='/pay' element={<MenuTransaksi />} />
+        <Route path='/' element={<HomeSuccess />} />
+        <Route path='/complain' element={<Complain />} />
       </Routes>
     </>
   );
