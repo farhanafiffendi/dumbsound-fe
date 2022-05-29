@@ -87,13 +87,13 @@ function App() {
                   <Route path='/complain-admin' element={<ComplainAdmin />} />
                   <Route path='/music-list' element={<MusicList />} />
                   <Route path='/list-transaction' element={<ListTransaction />} />
-                  <Route path='*' element={<NotFound />} />
                 </>
               ) : (
                 <>
                   <Route path='/pay' element={<MenuTransaksi />} />
                   <Route path='/' element={<HomeSuccess />} />
                   <Route path='/complain' element={<Complain />} />
+                  <Route path='*' element={<NotFound />} />
                 </>
               )}
             </>
