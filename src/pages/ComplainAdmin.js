@@ -22,7 +22,7 @@ export default function ComplainAdmin() {
 
 
     useEffect(() => {
-        socket = io('http://localhost:5000', {
+        socket = io('https://dumbsound-farhan.herokuapp.com', {
             auth: {
                 token: localStorage.getItem('token')
             },
