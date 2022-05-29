@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
@@ -19,9 +19,9 @@ ReactDOM.render(
     <UserContextProvider>
       {/* Add opening QueryClientProvider component and client as props */}
       <QueryClientProvider client={client}>
-        <Router>
+        <BrowserRouter>
           <App />
-        </Router>
+        </BrowserRouter>
         {/* Add closing QueryClientProvider component */}
       </QueryClientProvider>
     </UserContextProvider>
