@@ -94,7 +94,6 @@ function App() {
                   <Route path='/pay' element={<MenuTransaksi />} />
                   <Route path='/' element={<HomeSuccess />} />
                   <Route path='/complain' element={<Complain />} />
-                  <Route path='*' element={<NotFound />} />
                 </>
               )}
             </>
