@@ -17,7 +17,7 @@ export default function MenuTransaksi() {
     const [userPay, setUserPay] = useState({});
     console.log(userPay);
 
-    const end = new Date().getTime() && new Date(`${userPay.dueDate}`).getTime();
+    const end = new Date(`${userPay?.dueDate}`).getTime();
     const start = new Date().getTime();
     const selisih = end - start;
 
