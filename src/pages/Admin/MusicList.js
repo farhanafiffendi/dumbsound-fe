@@ -50,52 +50,55 @@ export default function MusicList() {
     }, [confirmDelete]);
 
     return (
-        <div className='container'>
+        <>
             <NavbarAdmin />
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>name</th>
-                        <th>title</th>
-                        <th>thumbnail</th>
-                        <th>attache</th>
-                        <th>Year</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {musics?.map((item, index) => (
-                        <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{item.art.name}</td>
-                            <td>{item.title}</td>
-                            <td><img
-                                src={item.thumbnail}
-                                style={{
-                                    width: '80px',
-                                    height: '80px',
-                                    objectFit: 'cover',
-                                }}
-                                alt={item.name}
-                            /></td>
-                            <td>{`${item.attache}`.slice(44)}</td>
-                            <td>{item.year}</td>
-                            <td>
-                                <button className='btn btn-success' >Edit</button>
-                                <button className='btn btn-danger ms-2' onClick={() => {
-                                    handleDelete(item.id);
-                                }}>Delete</button>
-                            </td>
+            <div className='container mt-4'>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>name</th>
+                            <th>title</th>
+                            <th>thumbnail</th>
+                            <th>attache</th>
+                            <th>Year</th>
+                            <th>Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </Table>
-            <DeleteData
-                setConfirmDelete={setConfirmDelete}
-                show={show}
-                handleClose={handleClose}
-            />
-        </div>
+                    </thead>
+                    <tbody>
+                        {musics?.map((item, index) => (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{item.art.name}</td>
+                                <td>{item.title}</td>
+                                <td><img
+                                    src={item.thumbnail}
+                                    style={{
+                                        width: '80px',
+                                        height: '80px',
+                                        objectFit: 'cover',
+                                    }}
+                                    alt={item.name}
+                                /></td>
+                                <td>{`${item.attache}`.slice(44)}</td>
+                                <td>{item.year}</td>
+                                <td>
+                                    <button className='btn btn-success' >Edit</button>
+                                    <button className='btn btn-danger ms-2' onClick={() => {
+                                        handleDelete(item.id);
+                                    }}>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                <DeleteData
+                    setConfirmDelete={setConfirmDelete}
+                    show={show}
+                    handleClose={handleClose}
+                />
+            </div>
+        </>
+
     )
 }
