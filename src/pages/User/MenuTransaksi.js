@@ -26,23 +26,23 @@ export default function MenuTransaksi() {
     // const detik = Math.floor(selisih % (1000 * 60) / (1000));
     // console.log(detik);
 
-    useEffect(() => {
-        const loadUserTrans = async () => {
-            try {
-                const config = {
-                    method: "GET",
-                    headers: {
-                        Authorization: "Basic " + localStorage.token,
-                    },
-                };
-                const response = await API.get('/transactionAdmin', config);
-                setUserPay(response.data.data.trans);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        loadUserTrans();
-    }, []);
+    // useEffect(() => {
+    //     const loadUserTrans = async () => {
+    //         try {
+    //             const config = {
+    //                 method: "GET",
+    //                 headers: {
+    //                     Authorization: "Basic " + localStorage.token,
+    //                 },
+    //             };
+    //             const response = await API.get('/transactionAdmin', config);
+    //             setUserPay(response.data.data.trans);
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
+    //     loadUserTrans();
+    // }, []);
 
     useEffect(() => {
         //change this to the script source you want to load, for example this is snap.js sandbox env
