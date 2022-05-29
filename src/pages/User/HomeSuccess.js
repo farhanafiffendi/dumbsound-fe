@@ -9,6 +9,7 @@ import { API } from '../../config/api'
 import { UserContext } from '../../context/userContext';
 
 export default function HomeSuccess() {
+    console.clear()
 
     const [state] = useContext(UserContext);
     console.log(state);
@@ -27,8 +28,8 @@ export default function HomeSuccess() {
                         Authorization: "Basic " + localStorage.token,
                     },
                 };
-                const response = await API.get(`userTrans/${state.user.id}`, config);
-                setUserTrans(response.data.data.user.transaction);
+                const response = await API.get('/transactionAdmin', config);
+                setUserTrans(response.data.data.trans);
             } catch (error) {
                 console.log(error);
             }

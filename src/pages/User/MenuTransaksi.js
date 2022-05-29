@@ -8,6 +8,7 @@ import { UserContext } from '../../context/userContext';
 import logoSuccess from '../../components/assets/paySuccess.png';
 
 export default function MenuTransaksi() {
+    console.clear()
 
     const [state] = useContext(UserContext);
 
@@ -28,8 +29,14 @@ export default function MenuTransaksi() {
     useEffect(() => {
         const loadUserTrans = async () => {
             try {
-                const response = await API.get(`userTrans/${state.user.id}`);
-                setUserPay(response.data.data.user.transaction);
+                const config = {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Basic " + localStorage.token,
+                    },
+                };
+                const response = await API.get('/transactionAdmin', config);
+                setUserPay(response.data.data.trans);
             } catch (error) {
                 console.log(error);
             }

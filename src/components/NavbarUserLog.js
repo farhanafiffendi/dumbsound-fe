@@ -1,16 +1,38 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { UserContext } from "../context/userContext";
 import { Nav } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Logo from './assets/logo.png'
-
+import { API } from '../config/api';
 
 export default function NavbarUserLog() {
+    console.clear();
+
     let navigate = useNavigate()
 
     const [state, dispatch] = useContext(UserContext);
+
+    const [profiles, setProfile] = useState({});
+
+    useEffect(() => {
+        const loadProfile = async () => {
+            try {
+                const config = {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Basic " + localStorage.token,
+                    },
+                };
+                const response = await API.get('/userTrans', config);
+                setProfile(response.data.data.user);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        loadProfile();
+    }, []);
 
     const logout = () => {
         dispatch({
@@ -30,7 +52,7 @@ export default function NavbarUserLog() {
                     </div>
                 </Link>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-radius">{`${state.user.fullname}`.toUpperCase().slice(0, 1)}</button>
+                    <button type="button" class="btn btn-danger btn-radius">{`${profiles.fullname}`.toUpperCase().slice(0, 1)}</button>
                     <button type="button" class="btn btn-danger drop dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
