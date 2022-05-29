@@ -15,6 +15,16 @@ export default function MenuTransaksi() {
 
     const [userPay, setUserPay] = useState({});
 
+    const end = new Date(`${userPay.dueDate}`).getTime();
+    const start = new Date().getTime();
+    const selisih = end - start;
+
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+    const detik = Math.floor(selisih % (1000 * 60) / (1000));
+    console.log(detik);
+
     useEffect(() => {
         const loadUserTrans = async () => {
             try {
@@ -108,7 +118,8 @@ export default function MenuTransaksi() {
                     ) : userPay.status === "success" ? (
                         <div className='d-flex align-items-center'>
                             <div className='flex-direction text-center'>
-                                <h4>Anda Sedang Menikmati Masa Langganan Selama 1 Bulan</h4>
+                                <h4>Anda Sudah Membayar Premium</h4>
+                                <p>Masa berlangganan anda tinggal {hari} hari</p>
                                 <img src={logoSuccess} alt="" style={{ height: '350px', marginTop: '20px' }} />
                             </div>
                         </div>
