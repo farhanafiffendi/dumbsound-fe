@@ -16,33 +16,33 @@ export default function MenuTransaksi() {
 
     const [userPay, setUserPay] = useState({});
 
-    // const end = new Date(`${userPay.dueDate}`).getTime();
-    // const start = new Date().getTime();
-    // const selisih = end - start;
+    const end = new Date(`${userPay.dueDate}`).getTime();
+    const start = new Date().getTime();
+    const selisih = end - start;
 
-    // const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-    // const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-    // const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
-    // const detik = Math.floor(selisih % (1000 * 60) / (1000));
-    // console.log(detik);
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+    const detik = Math.floor(selisih % (1000 * 60) / (1000));
+    console.log(detik);
 
-    // useEffect(() => {
-    //     const loadUserTrans = async () => {
-    //         try {
-    //             const config = {
-    //                 method: "GET",
-    //                 headers: {
-    //                     Authorization: "Basic " + localStorage.token,
-    //                 },
-    //             };
-    //             const response = await API.get('/transactionAdmin', config);
-    //             setUserPay(response.data.data.trans);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     loadUserTrans();
-    // }, []);
+    useEffect(() => {
+        const loadUserTrans = async () => {
+            try {
+                const config = {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Basic " + localStorage.token,
+                    },
+                };
+                const response = await API.get('/transactionAdmin', config);
+                setUserPay(response.data.data.trans);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        loadUserTrans();
+    }, []);
 
     useEffect(() => {
         //change this to the script source you want to load, for example this is snap.js sandbox env
@@ -126,7 +126,7 @@ export default function MenuTransaksi() {
                         <div className='d-flex align-items-center'>
                             <div className='flex-direction text-center'>
                                 <h4>Anda Sudah Membayar Premium</h4>
-                                <p>Masa berlangganan anda tinggal hari</p>
+                                <p>Masa berlangganan anda tinggal {hari} hari</p>
                                 <img src={logoSuccess} alt="" style={{ height: '350px', marginTop: '20px' }} />
                             </div>
                         </div>
