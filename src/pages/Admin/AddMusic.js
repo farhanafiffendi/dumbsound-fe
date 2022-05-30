@@ -74,7 +74,7 @@ const AddMusic = () => {
             formData.set("year", form.year)
             console.log(form.attache[0].name)
             console.log(form.thumbnail[0].name)
-            formData.set("attache", form?.attache[0], form?.attache[0]?.name)
+            formData.set("attache", form.attache[0], form?.attache[0]?.name)
             formData.set("thumbnail", form.thumbnail[0], form?.thumbnail[0]?.name)
             formData.set("idArtist", form.idArtist)
 
