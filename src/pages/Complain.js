@@ -19,10 +19,6 @@ export default function Complain() {
     const [contacts, setContacts] = useState([])
     const [messages, setMessages] = useState([])
 
-
-    const title = "Complain"
-    document.title = 'DumbMerch | ' + title
-
     const [state, dispatch] = useContext(UserContext)
     useEffect(() => {
         socket = io('https://dumbsound-farhan.herokuapp.com', {
