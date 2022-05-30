@@ -17,7 +17,7 @@ export default function MenuTransaksi() {
     const [userPay, setUserPay] = useState({});
     console.log(userPay);
 
-    const timeInterval = () => {
+    const timeInterval = (hari) => {
         const end = new Date(`${userPay?.dueDate}`).getTime();
         const start = new Date().getTime();
         const selisih = end - start;
@@ -128,7 +128,7 @@ export default function MenuTransaksi() {
                         <div className='d-flex align-items-center'>
                             <div className='flex-direction text-center'>
                                 <h4>Anda Sudah Membayar Premium</h4>
-                                <p>Masa berlangganan anda tinggal hari {timeInterval(hari)} </p>
+                                <p>Masa berlangganan anda tinggal {timeInterval(hari)} hari</p>
                                 <img src={logoSuccess} alt="" style={{ height: '350px', marginTop: '20px' }} />
                             </div>
                         </div>
