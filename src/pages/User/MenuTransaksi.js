@@ -22,10 +22,10 @@ export default function MenuTransaksi() {
         const start = new Date().getTime();
         const selisih = end - start;
 
-        const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-        const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-        const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
-        const detik = Math.floor(selisih % (1000 * 60) / (1000));
+        hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+        jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+        detik = Math.floor(selisih % (1000 * 60) / (1000));
 
     }
 
