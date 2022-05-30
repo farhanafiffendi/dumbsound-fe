@@ -464,4 +464,9 @@ option:focus {
       justify-content: start !important;
     }
 
+    .card-responsive-success{
+      display: flex !important;
+      justify-content: start !important;
+    }
+
 }
