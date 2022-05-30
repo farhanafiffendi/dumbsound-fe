@@ -26,6 +26,8 @@ export default function MenuTransaksi() {
     let menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
     let detik = Math.floor(selisih % (1000 * 60) / (1000));
 
+    const duration = hari;
+
     useEffect(() => {
         const loadUserTrans = async () => {
             try {
@@ -126,7 +128,7 @@ export default function MenuTransaksi() {
                         <div className='d-flex align-items-center'>
                             <div className='flex-direction text-center'>
                                 <h4>Anda Sudah Membayar Premium</h4>
-                                <p>Masa berlangganan anda tinggal {hari} hari</p>
+                                <p>Masa berlangganan anda tinggal {duration} hari</p>
                                 <img src={logoSuccess} alt="" style={{ height: '350px', marginTop: '20px' }} />
                             </div>
                         </div>
