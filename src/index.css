@@ -459,4 +459,9 @@ option:focus {
         text-align: start !important;
     }
 
+    .card-responsive{
+      display: flex !important;
+      justify-content: start !important;
+    }
+
 }
