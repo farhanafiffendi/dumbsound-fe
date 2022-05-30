@@ -92,7 +92,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/homepage' element={<Spinner />} />
+        <Route path='/homepage' element={<HomePage />} />
         <Route path='/add-music' element={<AddMusic />} />
         <Route path='/add-artist' element={<AddArtist />} />
         <Route path='/complain-admin' element={<ComplainAdmin />} />
