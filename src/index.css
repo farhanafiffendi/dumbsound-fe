@@ -460,13 +460,13 @@ option:focus {
     }
 
     .card-responsive{
-      display: flex !important;
-      justify-content: start !important;
+      display: flex;
+      justify-content: start;
     }
 
     .card-responsive-success{
-      display: flex !important;
-      justify-content: start !important;
+      display: flex;
+      justify-content: start;
     }
 
 }
