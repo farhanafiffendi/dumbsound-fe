@@ -46,7 +46,7 @@ export default function HomePage() {
             <div className="container-fluid content-color py-5">
                 <span className='header-card text-center'><p>Daftar dan masuk untuk menikmati lagu hits sekarang</p></span>
                 <div>
-                    <div className='d-flex flex-wrap justify-content-center card-responsive ms-4 mt-5'>
+                    <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
                         {musics?.map((item, index) => {
                             return (
                                 <div className='card-item mb-3 me-3'>
