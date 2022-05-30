@@ -14,6 +14,7 @@ import ComplainAdmin from './pages/ComplainAdmin';
 import MusicList from './pages/Admin/MusicList';
 import ListTransaction from './pages/Admin/ListTransaction';
 import NotFound from './pages/NotFound';
+import Spinner from './components/Spinner';
 
 import { setAuthToken, API } from './config/api';
 
@@ -91,7 +92,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/homepage' element={<HomePage />} />
+        <Route path='/homepage' element={<Spinner />} />
         <Route path='/add-music' element={<AddMusic />} />
         <Route path='/add-artist' element={<AddArtist />} />
         <Route path='/complain-admin' element={<ComplainAdmin />} />
