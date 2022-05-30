@@ -148,7 +148,7 @@ export default function HomeSuccess() {
             {musicId === "" ? (
                 <div></div>
             ) : (
-                <div className='text-center' style={{ background: 'rgb(56, 8, 8)' }}>
+                <div className='text-center bottom-fixed' style={{ background: 'rgb(56, 8, 8)' }}>
                     <p>{musicId.title}</p>
                     <AudioPlayer
                         className='media-player'
