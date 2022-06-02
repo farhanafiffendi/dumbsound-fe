@@ -85,7 +85,7 @@ export default function HomeSuccess() {
                                                 </div>
                                                 <div className="text-card">
                                                     <span className='text-title'>
-                                                        <p>{`${item.title}`.slice(0, 10) + '...'}</p>
+                                                        <p>{(item.title.length > 8) ? item.title.slice(0, 8) + '...' : item.title}</p>
                                                     </span>
                                                     <p>{item.year}</p>
                                                 </div>
@@ -107,7 +107,7 @@ export default function HomeSuccess() {
                                             </div>
                                             <div className="text-card">
                                                 <span className='text-title'>
-                                                    <p>{`${item.title}`.slice(0, 10) + '...'}</p>
+                                                    <p>{(item.title.length > 8) ? item.title.slice(0, 8) + '...' : item.title}</p>
                                                 </span>
                                                 <p>{item.year}</p>
                                             </div>
@@ -129,7 +129,7 @@ export default function HomeSuccess() {
                                                 </div>
                                                 <div className="text-card">
                                                     <span className='text-title'>
-                                                        <p>{`${item.title}`.slice(0, 10) + '...'}</p>
+                                                        <p>{(item.title.length > 8) ? item.title.slice(0, 8) + '...' : item.title}</p>
                                                     </span>
                                                     <p>{item.year}</p>
                                                 </div>
