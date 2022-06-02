@@ -80,10 +80,9 @@ export default function MusicList() {
                                     }}
                                     alt={item.name}
                                 /></td>
-                                <td>{`${item.attache}`.slice(44)}</td>
+                                <td>{`${item.attache}`.slice(88)}</td>
                                 <td>{item.year}</td>
                                 <td>
-                                    <button className='btn btn-success' >Edit</button>
                                     <button className='btn btn-danger ms-2' onClick={() => {
                                         handleDelete(item.id);
                                     }}>Delete</button>
