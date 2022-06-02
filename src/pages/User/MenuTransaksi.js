@@ -128,7 +128,7 @@ export default function MenuTransaksi() {
                         <div className='d-flex align-items-center'>
                             <div className='flex-direction text-center'>
                                 <h4>Anda Sudah Membayar Premium</h4>
-                                <p>Masa berlangganan anda tinggal {duration} hari</p>
+                                <p>Masa berlangganan anda tinggal {(duration).toString()} hari</p>
                                 <img src={logoSuccess} alt="" style={{ height: '350px', marginTop: '20px' }} />
                             </div>
                         </div>
