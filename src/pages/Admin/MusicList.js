@@ -80,7 +80,7 @@ export default function MusicList() {
                                     }}
                                     alt={item.name}
                                 /></td>
-                                <td>{`${item.attache}`.slice(88)}</td>
+                                <td>{`${item.attache}`.slice(84)}</td>
                                 <td>{item.year}</td>
                                 <td>
                                     <button className='btn btn-danger ms-2' onClick={() => {
