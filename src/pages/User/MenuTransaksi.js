@@ -26,7 +26,7 @@ export default function MenuTransaksi() {
     let menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
     let detik = Math.floor(selisih % (1000 * 60) / (1000));
 
-    const duration = hari.toString();
+    const duration = hari.toLocaleString();
 
     useEffect(() => {
         const loadUserTrans = async () => {
