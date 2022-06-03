@@ -72,7 +72,7 @@ export default function HomeSuccess() {
             <div className="container-fluid content-color py-5">
                 <span className='header-card text-center'><p>Dengarkan Dan Rasakan</p></span>
                 <div>
-                    <div className='d-flex flex-wrap justify-content-start ms-4 mt-5'>
+                    <div className='d-flex flex-wrap card-mobile justify-content-start ms-4 mt-5'>
                         {/* ketika status transaksi null atau tidak ada transaksi */}
                         {userTrans === null ? (
                             <>
