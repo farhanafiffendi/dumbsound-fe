@@ -460,7 +460,7 @@ option:focus {
     }
     .card-mobile{
         display: flex !important;
-        justify-content: center !important;
+        justify-content: start !important;
         flex-wrap: wrap !important;
   }
 
