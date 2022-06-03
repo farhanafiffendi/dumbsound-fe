@@ -463,8 +463,8 @@ option:focus {
 
 @media (max-width: 767.98px) {
   .card-mobile{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
   }
 }
