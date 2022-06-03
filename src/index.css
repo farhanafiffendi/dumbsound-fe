@@ -458,6 +458,11 @@ option:focus {
     .carousel{
         text-align: start !important;
     }
+    .card-mobile{
+        display: flex !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+  }
 
 }
 
