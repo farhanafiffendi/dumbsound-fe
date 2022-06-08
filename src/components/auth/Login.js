@@ -154,7 +154,7 @@ export default function Login() {
                 Login
             </Button>
 
-            <Modal show={show} onHide={handleClose} centered>
+            <Modal show={show} onHide={handleClose} style={{ background: 'transparent' }}>
                 <Modal.Body>
                     <div className="container mt-5 text-light">
                         <div className="col-lg-12 d-flex justify-content-center">
