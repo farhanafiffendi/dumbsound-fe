@@ -151,10 +151,11 @@ export default function Register() {
 
     return (
         <>
-            <Button variant="warning"
+            <Button
                 style={{
                     color: 'white',
                     border: '1px solid white',
+                    backgroundColor: '#ff4500'
                 }}
                 onClick={handleShow}>
                 Register

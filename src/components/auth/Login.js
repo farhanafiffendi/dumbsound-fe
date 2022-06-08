@@ -132,7 +132,7 @@ export default function Login() {
                 style={{
                     color: 'white',
                     border: '1px solid white',
-                    marginRight: '10px'
+                    marginRight: '14px'
                 }}
                 onClick={handleShow}>
                 Login
