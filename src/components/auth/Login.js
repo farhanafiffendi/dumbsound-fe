@@ -128,29 +128,7 @@ export default function Login() {
 
     return (
         <>
-            {/* <div className="container mt-5 text-light">
-                <div className="col-lg-12 d-flex justify-content-center">
-                    <div className="row">
-                        <div className="d-flex justify-content-center">
-                            <div className="containerLogin form">
-                                <form onSubmit={(e) => handleSubmit.mutate(e)}>
-                                    <div>{message && message}</div>
-                                    <h2>Login</h2>
-                                    <label>Email</label>
-                                    <input type="email" placeholder="Email" name="email" value={email} onChange={handleChange} />
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Password" value={password} name="password" onChange={handleChange} />
-                                    {loading ? <>
-                                        <Spinner animation="border" variant="danger" />
-                                    </> : <button> Click to login </button>}
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="dark" style={{ color: 'white', border: '1px solid white' }} onClick={handleShow}>
                 Login
             </Button>
 

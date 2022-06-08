@@ -14,7 +14,7 @@ export default function NavbarUser({ handleShow }) {
                         <img src={Logo} />
                     </NavbarComp.Brand>
                     <div>
-                        <Login />
+                        <Login className='me-3' />
                         <Register />
                     </div>
                 </Container>

@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import NavbarUser from '../../components/NavbarUser'
 import HeaderHome from '../../components/HeaderHome'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Register from '../../components/auth/Register'
-import Login from '../../components/auth/Login'
 import { API } from '../../config/api'
 import { useQuery } from "react-query";
 
@@ -32,7 +30,6 @@ export default function HomePage() {
     return (
         <>
             <NavbarUser />
-
             <div className='margin-header mb-5'>
                 <HeaderHome />
             </div>
