@@ -157,6 +157,7 @@ export default function Login() {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Body>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
+                        <div>{message && message}</div>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Control
@@ -168,7 +169,6 @@ export default function Login() {
                                     autoFocus
                                 />
                             </Form.Group>
-                            <div>{message && message}</div>
                             <Form.Control
                                 type="password"
                                 placeholder="password"
