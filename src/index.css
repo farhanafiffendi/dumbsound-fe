@@ -474,7 +474,7 @@ option:focus {
   }
   .image-header{
     background-image: url(../src/components/assets/header.png);
-    height: 43vh;
+    height: 55vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

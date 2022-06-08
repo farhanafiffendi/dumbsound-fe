@@ -17,6 +17,11 @@ export default function Login() {
 
     console.log(state);
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const [message, setMessage] = useState(null);
 
     const [loading, setLoading] = useState(false); //set spinner
@@ -123,7 +128,7 @@ export default function Login() {
 
     return (
         <>
-            <div className="container mt-5 text-light">
+            {/* <div className="container mt-5 text-light">
                 <div className="col-lg-12 d-flex justify-content-center">
                     <div className="row">
                         <div className="d-flex justify-content-center">
@@ -143,7 +148,38 @@ export default function Login() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+            <Modal>
+                <Modal.Body>
+                    <Form onSubmit={(e) => handleSubmit.mutate(e)}>
+                        <Form.Group className="mb-3 form containerLogin" controlId="exampleForm.ControlInput1">
+                            <div>{message && message}</div>
+                            <Form.Control
+                                type="password"
+                                placeholder="password"
+                                name="password"
+                                value={password}
+                                onChange={handleChange}
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Control
+                                type="email"
+                                placeholder="name@example.com"
+                                name="email"
+                                value={email}
+                                onChange={handleChange}
+                                autoFocus
+                            />
+                        </Form.Group>
+                        {loading ? <>
+                            <Spinner animation="border" variant="danger" />
+                        </> : <button> Click to login </button>}
+                    </Form>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
