@@ -22,6 +22,12 @@ export default function Register() {
 
     const [message, setMessage] = useState(null);
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     // Create variabel for store data with useState here ...
     const [form, setForm] = useState({
         fullname: '',
