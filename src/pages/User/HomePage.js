@@ -36,8 +36,6 @@ export default function HomePage() {
             <div className='margin-header mb-5'>
                 <HeaderHome />
             </div>
-            {show ? <Login isOpen={show} /> : onHide}
-            {show ? <Register isOpen={show} /> : null}
             <div className="container-fluid content-color py-5">
                 <span className='header-card text-center'><p>Daftar dan masuk untuk menikmati lagu hits sekarang</p></span>
                 <div>
