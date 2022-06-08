@@ -155,7 +155,7 @@ export default function Login() {
             </Button>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Body>
+                <Modal.Body className="containerLogin form">
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                         <div>{message && message}</div>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -166,7 +166,6 @@ export default function Login() {
                                     name="email"
                                     value={email}
                                     onChange={handleChange}
-                                    autoFocus
                                 />
                             </Form.Group>
                             <Form.Control
@@ -175,7 +174,6 @@ export default function Login() {
                                 name="password"
                                 value={password}
                                 onChange={handleChange}
-                                autoFocus
                             />
                         </Form.Group>
                         {loading ? <>
