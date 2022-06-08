@@ -154,7 +154,7 @@ export default function Login() {
                 Login
             </Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} centered>
                 <Modal.Body className='modal-login'>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                         <div>{message && message}</div>
