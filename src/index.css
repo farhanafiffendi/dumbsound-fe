@@ -191,6 +191,7 @@ hr{
 
 .modal-content{
   background-color: transparent !important;
+  border: none !important;
 }
 
 input:focus,
