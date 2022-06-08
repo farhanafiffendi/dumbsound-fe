@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 // Get API config here ...
 import { API } from '../../config/api';
 
-export default function Login({ show, handleClose }) {
+export default function Login() {
 
     let navigate = useNavigate();
 
@@ -149,6 +149,10 @@ export default function Login({ show, handleClose }) {
                     </div>
                 </div>
             </div> */}
+
+            <Button variant="primary" onClick={handleShow}>
+                Login
+            </Button>
 
             <Modal show={show} onHide={handleClose} centered>
                 <Modal.Body>
