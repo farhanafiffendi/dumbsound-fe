@@ -154,7 +154,7 @@ export default function Login() {
                 Login
             </Button>
 
-            <Modal show={show} onHide={handleClose} centered>
+            <Modal show={show} onHide={handleClose} centered style={{ width: '350px' }}>
                 <Modal.Body className='modal-login'>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                         <div>{message && message}</div>
@@ -178,7 +178,13 @@ export default function Login() {
                         </Form.Group>
                         {loading ? <>
                             <Spinner animation="border" variant="danger" />
-                        </> : <button> Click to login </button>}
+                        </> : <button
+                            style={{
+                                padding: '5px 8px',
+                                background: 'black',
+                                color: 'white'
+                            }}
+                        > Click to login </button>}
                     </Form>
                 </Modal.Body>
             </Modal>
