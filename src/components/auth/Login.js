@@ -128,7 +128,13 @@ export default function Login() {
 
     return (
         <>
-            <Button variant="dark" style={{ color: 'white', border: '1px solid white' }} onClick={handleShow}>
+            <Button variant="dark"
+                style={{
+                    color: 'white',
+                    border: '1px solid white',
+                    marginRight: '10px'
+                }}
+                onClick={handleShow}>
                 Login
             </Button>
 
@@ -143,9 +149,17 @@ export default function Login() {
                                             <div>{message && message}</div>
                                             <h2>Login</h2>
                                             <label>Email</label>
-                                            <input type="email" placeholder="Email" name="email" value={email} onChange={handleChange} />
+                                            <input type="email"
+                                                placeholder="Email"
+                                                name="email"
+                                                value={email}
+                                                onChange={handleChange} />
                                             <label>Password</label>
-                                            <input type="password" placeholder="Password" value={password} name="password" onChange={handleChange} />
+                                            <input type="password"
+                                                placeholder="Password"
+                                                value={password}
+                                                name="password"
+                                                onChange={handleChange} />
                                             {loading ? <>
                                                 <Spinner animation="border" variant="danger" />
                                             </> : <button> Click to login </button>}
