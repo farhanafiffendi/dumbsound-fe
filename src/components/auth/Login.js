@@ -154,7 +154,7 @@ export default function Login() {
                 Login
             </Button>
 
-            <Modal show={show} onHide={handleClose} centered>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Body>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                         <Form.Group className="mb-3 form containerLogin" controlId="exampleForm.ControlInput1">
