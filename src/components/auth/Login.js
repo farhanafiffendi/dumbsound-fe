@@ -154,7 +154,7 @@ export default function Login() {
                 Login
             </Button>
 
-            <Modal show={show} onHide={handleClose} centered style={{ width: '350px' }}>
+            <Modal show={show} onHide={handleClose} style={{ width: '350px' }} centered>
                 <Modal.Body className='modal-login'>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                         <div>{message && message}</div>
@@ -181,8 +181,8 @@ export default function Login() {
                         </> : <button
                             style={{
                                 padding: '5px 8px',
-                                background: 'black',
-                                color: 'white'
+                                background: 'red',
+                                color: 'black'
                             }}
                         > Click to login </button>}
                     </Form>
