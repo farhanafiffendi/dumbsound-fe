@@ -155,38 +155,28 @@ export default function Login() {
             </Button>
 
             <Modal show={show} onHide={handleClose} centered>
-                <Modal.Body className='modal-login'>
-                    <Form onSubmit={(e) => handleSubmit.mutate(e)}>
-                        <div>{message && message}</div>
-                        <h2>Login</h2>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Control
-                                    type="email"
-                                    placeholder="name@example.com"
-                                    name="email"
-                                    value={email}
-                                    onChange={handleChange}
-                                />
-                            </Form.Group>
-                            <Form.Control
-                                type="password"
-                                placeholder="password"
-                                name="password"
-                                value={password}
-                                onChange={handleChange}
-                            />
-                        </Form.Group>
-                        {loading ? <>
-                            <Spinner animation="border" variant="danger" />
-                        </> : <button
-                            style={{
-                                padding: '5px 8px',
-                                background: 'red',
-                                color: 'black'
-                            }}
-                        > Click to login </button>}
-                    </Form>
+                <Modal.Body>
+                    <div className="container mt-5 text-light">
+                        <div className="col-lg-12 d-flex justify-content-center">
+                            <div className="row">
+                                <div className="d-flex justify-content-center">
+                                    <div className="containerLogin form">
+                                        <form onSubmit={(e) => handleSubmit.mutate(e)}>
+                                            <div>{message && message}</div>
+                                            <h2>Login</h2>
+                                            <label>Email</label>
+                                            <input type="email" placeholder="Email" name="email" value={email} onChange={handleChange} />
+                                            <label>Password</label>
+                                            <input type="password" placeholder="Password" value={password} name="password" onChange={handleChange} />
+                                            {loading ? <>
+                                                <Spinner animation="border" variant="danger" />
+                                            </> : <button> Click to login </button>}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </Modal.Body>
             </Modal>
         </>
