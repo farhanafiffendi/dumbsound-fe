@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 // Get API config here ...
 import { API } from '../../config/api';
 
-export default function Login() {
+export default function Login({ show, handleClose }) {
 
     let navigate = useNavigate();
 
@@ -150,26 +150,26 @@ export default function Login() {
                 </div>
             </div> */}
 
-            <Modal>
+            <Modal show={show} onHide={handleClose} centered>
                 <Modal.Body>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                         <Form.Group className="mb-3 form containerLogin" controlId="exampleForm.ControlInput1">
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Control
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    name="email"
+                                    value={email}
+                                    onChange={handleChange}
+                                    autoFocus
+                                />
+                            </Form.Group>
                             <div>{message && message}</div>
                             <Form.Control
                                 type="password"
                                 placeholder="password"
                                 name="password"
                                 value={password}
-                                onChange={handleChange}
-                                autoFocus
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control
-                                type="email"
-                                placeholder="name@example.com"
-                                name="email"
-                                value={email}
                                 onChange={handleChange}
                                 autoFocus
                             />

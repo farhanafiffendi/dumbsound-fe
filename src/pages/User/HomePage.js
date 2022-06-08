@@ -29,20 +29,20 @@ export default function HomePage() {
     };
     checkAuth();
 
-    const [clickLogin, setClickLogin] = useState(false);
-    const [clickRegister, setClickRegister] = useState(false);
+    const [show, setShow] = useState(false);
 
-    const handleClickLogin = () => setClickLogin(!clickLogin)
-    const handleClickRegister = () => setClickRegister(!clickRegister)
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <>
-            <NavbarUser handleClickLogin={handleClickLogin} handleClickRegister={handleClickRegister} />
+            <NavbarUser handleShow={handleShow} handleShow={handleShow} />
+
             <div className='margin-header mb-5'>
                 <HeaderHome />
             </div>
-            {clickLogin ? <Login isOpen={clickLogin} /> : null}
-            {clickRegister ? <Register isOpen={clickRegister} /> : null}
+            {show ? <Login isOpen={show} /> : null}
+            {show ? <Register isOpen={show} /> : null}
             <div className="container-fluid content-color py-5">
                 <span className='header-card text-center'><p>Daftar dan masuk untuk menikmati lagu hits sekarang</p></span>
                 <div>
