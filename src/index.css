@@ -472,4 +472,12 @@ option:focus {
     justify-content: center !important;
     flex-wrap: wrap !important;
   }
+  .image-header{
+    background-image: url(../src/components/assets/header.png);
+    height: 43vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 99999;
+  }
 }
