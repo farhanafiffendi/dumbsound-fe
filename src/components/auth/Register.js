@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { UserContext } from '../../context/userContext';
 import { useNavigate } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
+import { Button, Modal, Alert, Spinner, Form } from 'react-bootstrap'
 
 // Import useMutation from react-query here ...
 import { useMutation } from 'react-query';
@@ -144,37 +145,48 @@ export default function Register() {
     });
 
     return (
-        <div className="container mt-5 text-light">
-            <div className="col-lg-12 d-flex justify-content-center">
-                <div className="row">
-                    <div className="d-flex justify-content-center">
-                        <div className="containerRegister form">
-                            <form onSubmit={(e) => handleSubmit.mutate(e)}>
-                                <div>{message && message}</div>
-                                <h2>Register</h2>
-                                <label>Name</label>
-                                <input type="text" placeholder="Name" value={fullname} name="fullname" onChange={handleChange} />
-                                <label>Email</label>
-                                <input type="email" placeholder="Email" value={email} name="email" onChange={handleChange} />
-                                <label>Password</label>
-                                <input type="password" placeholder="Password" value={password} name="password" onChange={handleChange} />
-                                <label for="disabledSelect" class="form-label">Gender</label>
-                                <select id="disabledSelect" class="form-select" value={gender} name="gender" onChange={handleChange}>
-                                    <option value="" selected disabled>Pilih Gender</option>
-                                    <option name="gender">Female</option>
-                                    <option name="gender">Male</option>
-                                </select>
-                                <label>Phone</label>
-                                <input type="text" placeholder="Name" value={phone} name="phone" onChange={handleChange} />
-                                <label>Address</label>
-                                <input type="text" placeholder="Address" value={address} name="address" onChange={handleChange} />
-                                <button className='mt-2'> Click to register </button>
-                            </form>
+        <>
+            <Button variant="primary" onClick={handleShow}>
+                Register
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Body className='modal-content'>
+                    <div className="container mt-5 text-light">
+                        <div className="col-lg-12 d-flex justify-content-center">
+                            <div className="row">
+                                <div className="d-flex justify-content-center">
+                                    <div className="containerRegister form">
+                                        <form onSubmit={(e) => handleSubmit.mutate(e)}>
+                                            <div>{message && message}</div>
+                                            <h2>Register</h2>
+                                            <label>Name</label>
+                                            <input type="text" placeholder="Name" value={fullname} name="fullname" onChange={handleChange} />
+                                            <label>Email</label>
+                                            <input type="email" placeholder="Email" value={email} name="email" onChange={handleChange} />
+                                            <label>Password</label>
+                                            <input type="password" placeholder="Password" value={password} name="password" onChange={handleChange} />
+                                            <label for="disabledSelect" class="form-label">Gender</label>
+                                            <select id="disabledSelect" class="form-select" value={gender} name="gender" onChange={handleChange}>
+                                                <option value="" selected disabled>Pilih Gender</option>
+                                                <option name="gender">Female</option>
+                                                <option name="gender">Male</option>
+                                            </select>
+                                            <label>Phone</label>
+                                            <input type="text" placeholder="Name" value={phone} name="phone" onChange={handleChange} />
+                                            <label>Address</label>
+                                            <input type="text" placeholder="Address" value={address} name="address" onChange={handleChange} />
+                                            <button className='mt-2'> Click to register </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </Modal.Body>
+            </Modal>
 
-        </div>
+        </>
+
     )
 }

@@ -136,8 +136,7 @@ hr{
     background-color: black;
     z-index: 10000;
     /* right: 520px; */
-    position: absolute;
-    margin-top: -520px;
+    position: fixed;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 

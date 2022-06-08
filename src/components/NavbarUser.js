@@ -3,6 +3,7 @@ import Logo from './assets/logo.png'
 import { Container, Navbar as NavbarComp, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './auth/Login'
+import Register from './auth/Register'
 
 export default function NavbarUser({ handleShow }) {
     return (
@@ -14,7 +15,7 @@ export default function NavbarUser({ handleShow }) {
                     </NavbarComp.Brand>
                     <div>
                         <Login />
-                        <Button className='ms-3 button-nav' onClick={handleShow}>Register</Button>
+                        <Register />
                     </div>
                 </Container>
             </NavbarComp>
