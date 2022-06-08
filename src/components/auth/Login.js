@@ -157,7 +157,7 @@ export default function Login() {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Body>
                     <Form onSubmit={(e) => handleSubmit.mutate(e)}>
-                        <Form.Group className="mb-3 form containerLogin" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Control
                                     type="email"
